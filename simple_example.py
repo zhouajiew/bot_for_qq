@@ -6,6 +6,7 @@ import random
 import botpy
 from botpy import logging
 from botpy.ext.cog_yaml import read
+# 引入C2CMessage
 from botpy.message import C2CMessage
 
 # 记得先创建一下配置文件config.yaml
@@ -42,7 +43,7 @@ class MyClient(botpy.Client):
             openid=message.author.user_openid, # 用户的openid
             msg_type=0, msg_id=message.id,
             content=f"我收到了你的消息：{message.content}",
-            # 如果想要发送多条消息记得额外设置一下msg_seq
+            # 如果想要发送多条消息记得额外设置一下msg_seq，因为msg_seq相同的话，会被去重导致消息发送失败
             # msg_seq=str(random.randint(1, 999999))
         )
 
