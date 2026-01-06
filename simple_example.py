@@ -37,7 +37,7 @@ class MyClient(botpy.Client):
     async def on_ready(self):
         _log.info(f"robot 「{self.robot.name}」 on_ready!")
 
-    # # 只能通过这种方式被动发送私聊消息(Bot单次回复的次数上限为4)
+    # 只能通过这种方式被动发送私聊消息(Bot单次回复的次数上限为4)
     async def on_c2c_message_create(self, message: C2CMessage):
         await message._api.post_c2c_message(
             openid=message.author.user_openid, # 用户的openid
